@@ -1,9 +1,5 @@
 /**
  * Highstock plugin for moving the chart using righ mouse button.
- *
- * Author: Roland Banguiran
- * Email: banguiran@gmail.com
- *
  */
 
 // JSLint options:
