@@ -1,10 +1,13 @@
-# SignificantTrades [![Build Status](https://travis-ci.org/Tucsky/SignificantTrades.svg?branch=master)](https://travis-ci.org/Tucsky/SignificantTrades)
-Live cryptocurrency trades visualizer.<br>
-Currently supporting BitMEX, Bitfinex, Binance, Gdax, Bitstamp, Deribit, Huobi, Okex, Hitbtc, Poloniex, Coinex and Liquid ([see server/src/exchanges/](server/src/exchanges) for detail)
+# SignificantTrades
 
-![screenshot](https://i.imgur.com/nHJxsdL.gif)
+Live cryptocurrency trades visualizer.
+
+Currently supporting BitMEX, Bitfinex, Binance, Gdax, Bitstamp, Deribit, Huobi, Okex, Hitbtc, Poloniex, Coinex and Liquid.
+
+![Screen Shot 2021-04-10 at 16 50 12](https://user-images.githubusercontent.com/81108192/114276035-d5b36e00-9a1c-11eb-8d41-3b7c386870f7.png)
 
 ## What it do
+
 - Show LIVE trades from exchanges on a specific pair (default BTCUSD)
 - Filter noise by aggregating trades with the same timestamp
 - Chart averaged price, buy & sell volume, price sma, volume ema
@@ -12,6 +15,7 @@ Currently supporting BitMEX, Bitfinex, Binance, Gdax, Bitstamp, Deribit, Huobi, 
 - Visualize historical data (when available)
 
 ## How it works
+
 The app is written in vue.js, use the javascript WebSocket interface to connect to the exchanges API directly and listen to the trades events. From there it dispatch the trades to difference components within the app :
 - The trade list that shows the N previous significant orders
 - The chart that shows the averaged price action over the different exchanges
@@ -19,6 +23,7 @@ The app is written in vue.js, use the javascript WebSocket interface to connect 
 - The stats component that show basic number about whats happened under one specific interval (default 1m)
 
 ## Demo 
+
 [BTCUSD](https://btcusd.aggr.trade/)<br>
 [ETHUSD](https://ethusd.aggr.trade/) (down)<br>
 [XLMBTC](https://xlmbtc.aggr.trade/) (down)<br>
@@ -26,10 +31,11 @@ Just replace the subdomain by the pair of your choice.<br>
 Each subdomain get their own settings.
 
 ## How to install & run locally
+
 1. Clone the repo
 
 ```bash
-git clone https://github.com/Tucsky/SignificantTrades
+git clone https://github.com/TUDTech/Crypto_Trades_View
 ```
 
 2. Install dependencies
@@ -52,11 +58,8 @@ npm run build
 ```
 and access the index.html directly in the browser later without having to run a command
 
-...
-
-5. Profit !
-
 ## Settings
+
 |Name|Description|
 |----|:-----------|
 |Pair|The pair you want to track. BTCUSD by default| 
@@ -77,23 +80,33 @@ and access the index.html directly in the browser later without having to run a 
 |Exchange OHLC|Include exchange in chart (enabled by default for most of the exchanges)<br>Include exchange with the most relevant price action|
 
 ## Supported pairs
+
 The app fetch the available exchanges products when it starts the first time. So technically every pairs of the supported exchanges are supported. Just type the name in the "pair" settings (without any spaces or caret !).
 
 ## Adblocker issue (and solution)
+
 Some adblocker restrict access to exchanges websocket feeds.
-I know uBlock origin block many thing including huobi websocket API.
+uBlock origin block many thing including huobi websocket API.
 **Just disable Adblock on the app and you should be alright.**
 
 ## Cross-Domain (CORS) policy issue (and solution)
-In order to fetch the products the app need to make calls to the exchanges API. Most of thoses API tell the browser they only allow access from the exchange domain (see https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS). The only way to bypass this is to use a server that will make the call for us. The cors proxy settings let u set the url of this server, which is set to mine by default.
+
+In order to fetch the products the app need to make calls to the exchanges API. Most of thoses API tell the browser they only allow access from the exchange domain. The only way to bypass this is to use a server that will make the call for us. The cors proxy settings let u set the url of this server, which is set to mine by default.
 **Running `PROXY_URL=http://my-personnal-cors-proxy.me/ npm run dev` will start the app with another cors proxy which I encourage you to do.**
 
 ## About the historical data
+
 I use my servers (api.aggr.trade) to store and serve historical trades on demand.
-The current code for the server part is located in the [feature/server](https://github.com/Tucsky/SignificantTrades/tree/feature/server) branch.
 Let's say you have a server instance running on port 3000, start the client with an environment variable `API_URL=http://localhost:3000/historical/{from}/{to}/{timeframe} npm run dev`.
 
-## Donate
-LN https://tippin.me/@Tucsky ⚡️
-BTC [3GLyZHY8gRS96sH4J9Vw6s1NuE4tWcZ3hX](bitcoin:3GLyZHY8gRS96sH4J9Vw6s1NuE4tWcZ3hX)<br>
-XMR 48NJj3RJDo33zMLaudQDdM8G6MfPrQbpeZU2YnRN2Ep6hbKyYRrS2ZSdiAKpkUXBcjD2pKiPqXtQmSZjZM7fC6YT6CMmoX6
+## Contributing
+
+Thanks all for your contributions...
+    
+![Screen Shot 2021-03-21 at 19 11 59](https://user-images.githubusercontent.com/81108192/111917690-519f4380-8a79-11eb-9d01-de457b1655f6.png)
+    
+ETH WALLET: 0xA1134858c168568CBE37649D16723eC8F782e0A2
+
+![Screen Shot 2021-03-21 at 21 56 54](https://user-images.githubusercontent.com/81108192/111922186-5b807100-8a90-11eb-8504-a3fc3ae35052.png)
+
+BTC WALLET: 3N928MmFq51kbf6fE3fxJbtggBhcjMAhSQ
