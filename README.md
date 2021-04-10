@@ -1,4 +1,4 @@
-# SignificantTrades
+# Crypto Trades View
 
 Live cryptocurrency trades visualizer.
 
